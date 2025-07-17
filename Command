@@ -1,0 +1,71 @@
+# ========================
+# GIT & GITHUB COMMAND CHEAT SHEET
+# ========================
+
+# 1. SETUP & AUTHENTICATION
+# --------------------------
+git config --global user.name "Your Name"          # Set username
+git config --global user.email "your@email.com"    # Set email
+git config --global credential.helper manager      # Enable credential manager (Windows/macOS)
+git config --global credential.helper store        # Store credentials in file (Linux)
+git credential-manager github login                # Authenticate with GitHub
+git credential-manager github logout               # Sign out of GitHub
+git credential-manager github list                # List authenticated accounts
+
+# 2. REPOSITORY BASICS
+# --------------------------
+git init                                          # Initialize new repo
+git clone https://github.com/user/repo.git        # Clone a repository
+git status                                       # Check changes
+git add filename.txt                             # Stage specific file
+git add .                                        # Stage all changes
+git commit -m "Commit message"                   # Commit changes
+git push                                         # Push to remote
+git pull                                         # Pull latest changes
+
+# 3. BRANCHING & MERGING
+# --------------------------
+git branch                                       # List branches
+git branch new-feature                          # Create new branch
+git checkout main                               # Switch branch
+git checkout -b hotfix                         # Create & switch branch
+git merge feature-branch                       # Merge branch
+git rebase main                                # Rebase current branch onto main
+
+# 4. REMOTE MANAGEMENT
+# --------------------------
+git remote -v                                  # List remotes
+git remote add origin https://github.com/user/repo.git  # Add remote
+git remote set-url origin https://new-url.git  # Update remote URL
+git push -u origin main                       # Push & set upstream
+
+# 5. UNDOING CHANGES
+# --------------------------
+git reset --soft HEAD~1                       # Undo commit (keep changes)
+git reset --hard HEAD~1                       # Discard commit & changes
+git checkout -- file.txt                      # Discard file changes
+git revert abc123                             # Revert specific commit
+
+# 6. CREDENTIAL TROUBLESHOOTING
+# --------------------------
+git credential-manager clear                  # Clear cached credentials
+git remote set-url origin git@github.com:user/repo.git  # Switch to SSH
+
+# 7. ADVANCED COMMANDS
+# --------------------------
+git stash                                     # Stash changes
+git stash pop                                # Restore stashed changes
+git tag -a v1.0 -m "Version 1.0"             # Create annotated tag
+git log --oneline --graph                   # Compact history view
+
+# 8. GITHUB-SPECIFIC
+# --------------------------
+gh repo clone user/repo                     # Clone using GitHub CLI
+gh pr create --title "New feature"          # Create PR via CLI
+
+# ========================
+# TIPS:
+# - Use Personal Access Tokens (PAT) for HTTPS authentication
+# - Prefer SSH for better security: git@github.com:user/repo.git
+# - For teams: Use 'gh auth login' (GitHub CLI)
+# ========================
